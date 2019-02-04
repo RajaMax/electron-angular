@@ -71,7 +71,7 @@ export class DataService {
     addRecord(record) {
         record.isCloud = false;
         record.status = "add";
-        record.cloud_id = " ";
+        record.cloud_id = "";
         return new Promise((resolve, reject) => {
             this.db.insert(record, function (err, record) {
                 if (err) reject(err);

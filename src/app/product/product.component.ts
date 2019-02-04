@@ -72,11 +72,19 @@ export class ProductComponent implements OnInit {
       .catch((err) => console.error(err));
   }
   delete(record) {
-    this.ds.changeStatusforDelete(record)
+    if(record.cloud_id){
+      this.ds.changeStatusforDelete(record)
       .then((docs) => {
         this.initialFunciton()
       })
       .catch((err) => console.error(err));
+    }else{
+      this.ds.deleteRecord(record)
+      .then((docs) => {
+        this.initialFunciton()
+      })
+    }
+   
   }
   toMoveCloud(data) {
     console.log("move");
@@ -93,7 +101,6 @@ export class ProductComponent implements OnInit {
       this.ds.deleteCloudProduct(data.cloud_id).subscribe(data1 => {
         this.ds.deleteRecord(data)
         .then((docs) => {
-          this.initialFunciton()
         })
         .catch((err) => console.error(err));
       })
