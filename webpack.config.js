@@ -120,7 +120,7 @@ const postcssPlugins = function (loader) {
 
 
 module.exports = {
-  "target":"electron",
+  "target": "electron-renderer",
   "resolve": {
     "extensions": [
       ".ts",

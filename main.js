@@ -1,18 +1,21 @@
-const {app, BrowserWindow,Menu} = require('electron')   
+const {app, BrowserWindow,Menu,ipcRenderer} = require('electron')   
   const path = require('path')   
   const url = require('url')  
-  const template = [
-    {
-       label: 'App',
-       submenu: [
-          {
-             label: 'new'
-          },
-          {
-            role: 'toggledevtools'
-          },
-       ]
-    }];
+  // const template = [
+  //   {
+  //      label: 'file',
+  //      submenu: [
+  //         {
+  //            label: 'new',
+  //            click(){
+  //             ipcRenderer.send('open-file')
+  //            } 
+  //         },
+  //         {
+  //           role: 'toggledevtools'
+  //         },
+  //      ]
+  //   }];
   function createWindow () {     
     // Create the browser window.     
     win = new BrowserWindow()
@@ -24,8 +27,14 @@ const {app, BrowserWindow,Menu} = require('electron')
       protocol: 'file:',      
       slashes: true     
     }))   
+  // fileMenu.submenu
+  // .find(item => item.label === 'Quit')
+  // .click = () => win.webContents.send('open-file')
   } 
   
-  const menu = Menu.buildFromTemplate(template)
-  Menu.setApplicationMenu(menu)
+ // const menu = Menu.buildFromTemplate(template)
+ 
+
+  //Menu.setApplicationMenu(menu)
+  console.log(Menu)
   app.on('ready', createWindow)
