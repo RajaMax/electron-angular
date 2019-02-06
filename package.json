@@ -80,7 +80,23 @@
     "email": "sohlich@example.com"
   },
   "description": "Example application.",
-  "build": {
-    "appId": "0001"
+  "electronBuilder": {
+    "build": {
+      "productName": "Node App",
+      "appId": "my.id",
+      "asar": false,
+      "win": {
+        "iconUrl": "http://localhost:5000/images/logo-multi.ico",
+        "target": "nsis"
+      },
+      "nsis" :{
+        "oneClick": false
+      }
+    },
+    "directories": {
+      "output": "electron/output",
+      "app":"electron/app",
+      "buildResources": "electron/buildResources"
+    }
   }
 }

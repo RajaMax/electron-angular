@@ -23,7 +23,7 @@ const {app, BrowserWindow,Menu,ipcRenderer} = require('electron')
        
     // and load the index.html of the app.     
     win.loadURL(url.format({      
-      pathname: path.join(__dirname, 'dist','index.html'),
+      pathname: path.join(__dirname, 'angular-dist','index.html'),
       protocol: 'file:',      
       slashes: true     
     }))   
