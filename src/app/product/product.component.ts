@@ -59,7 +59,7 @@ export class ProductComponent implements OnInit {
       .then((docs) => {
         console.log("navigator " + navigator.onLine)
         if (navigator.onLine) {
-          this.ds.addCloudProduct(this.myGroup.value,"initial add product").subscribe(data => {
+          this.ds.addCloudProduct(this.myGroup.value).subscribe(data => {
             console.log(data)
             this.myGroup.value.product = "";
             this.myGroup.value.stock = "";
@@ -90,7 +90,7 @@ export class ProductComponent implements OnInit {
     console.log("move");
     console.log(data)
     if(data.status==="add"){
-      this.ds.addCloudProduct(data,"move cloud add product").subscribe(data1 => {
+      this.ds.addCloudProduct(data).subscribe(data1 => {
         this.ds.changeStatus(data,data1._id).then(() => {
         });
       })

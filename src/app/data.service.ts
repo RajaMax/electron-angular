@@ -79,8 +79,7 @@ export class DataService {
             });
         })
     }
-    addCloudProduct(data, staus): Observable<any> {
-        console.log(staus)
+    addCloudProduct(data): Observable<any> {
         if (this.notAddCall) {
             this.notAddCall=false
             var url = this.endPoint + "/product"
@@ -145,6 +144,7 @@ export class DataService {
             });
         })
     }
+   
 }
 
 

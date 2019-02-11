@@ -1,5 +1,7 @@
 <!-- <div (window:keypress)="doSomething($event)">click me<div> -->
-<h1>Welcome GSM </h1>
+<h1>Welcome GSM </h1>{{value}}
+<button *ngIf="online" (click)="receiveMessage()">Online</button>
+<button *ngIf="!online" (click)="receiveMessage()">offline</button>
 <a routerLink="/bill">Bill (Ctrl+B)</a>
-<a routerLink="/product">Product (Ctrl+P)</a>
+<a routerLink="/product1">Product (Ctrl+P)</a>
 <router-outlet></router-outlet>

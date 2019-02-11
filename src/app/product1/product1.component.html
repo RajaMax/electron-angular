@@ -1,0 +1,44 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Stock</th>
+      <th>Cloud</th>
+      <th>status</th>
+      <th>cloud id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of records;index as i">
+      <td>
+        {{record?.product}}
+      </td>
+      <td>
+        {{record?.stock}}
+      </td>
+      <td>
+        {{record?.isCloud}}
+      </td>
+      <td>
+        {{record?.status}}
+      </td>
+      <td>
+        {{record?.cloud_id}}
+      </td>
+      <td>
+        <span (click)="delete(record)">X</span>
+      </td>
+    </tr>
+    <!-- <tr *ngIf="!records?.length">
+      <td>
+        <strong>NO Product</strong>
+      </td>
+    </tr> -->
+  </tbody>
+</table>
+
+<form [formGroup]="myGroup" (ngSubmit)="addProduct()">
+  product : <input formControlName="product" id="product">
+  stock : <input formControlName="stock" id="stock">
+  <button type="submit" >Add</button>
+</form>
