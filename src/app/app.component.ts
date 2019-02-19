@@ -5,7 +5,6 @@ import { DataService1 } from './data1.service';
 import { Router } from "@angular/router";
 import 'rxjs/Rx';
 import { remote, ipcRenderer } from 'electron';
-import { NetworkConnection, ConnectionStatusEnum } from './network';
 import { timeInterval } from 'rxjs/operator/timeInterval';
 
 
@@ -36,6 +35,7 @@ export class AppComponent {
       label: 'File',
       submenu: [{
         label: 'Open',
+        accelerator: 'CmdOrCtrl+O',
         click: () => {
           console.log("render")
           this.router.navigate(['/product1']);
@@ -72,7 +72,6 @@ export class AppComponent {
     this.ds.checkOnline();
     this.online = navigator.onLine;
     console.log("status of work")
-    console.log(NetworkConnection.status + "  , " + navigator.onLine);
     this.ds.checkStatusCall().subscribe((res) => {
       console.log("online")
       this.online = true;
@@ -90,7 +89,6 @@ export class AppComponent {
           this.checkConnection();
         }, 5000);
       }
-
     });
 
   }

@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { DataService1 } from './data1.service';
-import { NetworkConnection, ConnectionStatusEnum } from './network';
 
 import { BillComponent } from './bill/bill.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -28,7 +27,7 @@ import { Product1Component } from './product1/product1.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [DataService,DataService1,NetworkConnection],
+  providers: [DataService,DataService1],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
